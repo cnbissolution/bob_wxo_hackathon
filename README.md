@@ -186,6 +186,20 @@ uv run orchestrate agents import --file agents/my_agent.yaml
 
 ---
 
+### Evaluation using WxO UI
+
+After deploying the agent to the shared instance, you can create tests and evaluate your agents through the WatsonX Orchestrate UI to make sure your agent is functioning consistently and calling tools correctly.
+
+From the IBM Cloud Dashboard (where you are redirected from the IBM Cloud invitation), navigate to the Resource List (3rd icon in the sidebar).
+
+Then, under **AI / Machine Learning**, select the WxO Hackathon instance and **launch** the WxO UI.
+
+In the UI sidebar, click **Build** and select your deployed tool.
+
+Test your agent by typing in the chatbox, and you will be able to save the log as a test and verify what tool calls were used. Once your tests are saved, you will be able to evaluate the test cases to ensure consistency.
+
+---
+
 ### Journey Success (judging metric)
 
 Each team uploads at least one Journey Success test case — a JSON file describing:
