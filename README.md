@@ -105,6 +105,7 @@ $ uv run orchestrate env add \
     --name hackathon \
     --url $WO_INSTANCE_URL \
     --iam-url $WO_IAM_URL \
+    --type $WO_AUTH_TYPE
 [INFO] - Environment 'hackathon' has been created
 
 # Activate
