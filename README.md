@@ -121,26 +121,15 @@ $ uv run orchestrate env list
 
 ## 5. Start Building
 
-You're set up. Open Bob and describe what you want to build — Bob will generate
-the tools, YAML configs, tests, and deployment commands for you.
+준비가 다 되었습니다. Bob을 실행하고 만들고 싶은 것을 설명하기만 하면, Bob이
+필요한 도구, YAML 구성 파일, 테스트, 배포 명령어를 자동으로 생성해 줍니다.
 
 **Example prompt:**
 
 ```
-Build me a weather travel agent and upload it to Orchestrate with evaluation test cases
+주식 가격 확인 에이전트를 만들어서 평가용 테스트 케이스와 함께 Orchestrate에 업로드해 주세요.
 ```
 
----
-
-### Use Cases (pick one)
-
-| Tier | Effort | Examples |
-|------|--------|----------|
-| **1 — Single tool** | ~2 hrs | PTO balance · GitHub PR digest · Next meeting · Expense lookup · Weather reminder |
-| **2 — Multi-tool agent** | ~½ day | IT helpdesk (KB → ticket → status) · Sales lead enricher · RFP tracker · Document summarizer |
-| **3 — Manager + collaborators** | full day | Employee onboarding (HR + IT + Facilities) · Support triage · Finance close assistant |
-
-> **Free APIs great for Tier 1:** [OpenWeatherMap](https://openweathermap.org/api) (1000 calls/day) · [GitHub REST API](https://docs.github.com/en/rest) (60 req/hr, no auth) · [CoinGecko](https://www.coingecko.com/en/api) (no auth) · [Nager.Date](https://date.nager.at) holidays (no auth) · [icanhazdadjoke](https://icanhazdadjoke.com/api) (no auth) · [NewsAPI](https://newsapi.org) (100 req/day free)
 
 ---
 
@@ -183,7 +172,7 @@ uv run orchestrate agents import --file agents/my_agent.yaml
 
 ### Evaluation using WxO UI
 
-After deploying the agent to the shared instance, you can create tests and evaluate your agents through the WatsonX Orchestrate UI to make sure your agent is functioning consistently and calling tools correctly.
+공유 인스턴스에 에이전트를 배포한 후에는 WatsonX Orchestrate UI를 통해 테스트를 생성하고 에이전트를 평가하여, 에이전트가 일관되게 작동하고 도구를 올바르게 호출하는지 확인할 수 있습니다.
 
 From the IBM Cloud Dashboard (where you are redirected from the IBM Cloud invitation), navigate to the Resource List (3rd icon in the sidebar).
 <img width="1685" height="485" alt="sc1" src="https://github.com/user-attachments/assets/efb34b91-697c-484c-ac7a-77f269f3adf7" />
@@ -223,7 +212,7 @@ curl -X POST -H "Authorization: Bearer $TOKEN" \
     -F "file=@tests/my_test.json;type=application/json"
 ```
 
-You can also test your agent in the UI by typing in the chatbox, and you will be able to save the log as a test and verify what tool calls were used. Once your tests are saved, you will be able to evaluate the test cases to ensure consistency.
+또한 UI의 채팅창에 내용을 입력하여 에이전트를 테스트할 수 있으며, 테스트 로그를 저장하여 어떤 도구 호출이 사용되었는지 확인할 수 있습니다. 테스트가 저장되면 테스트 케이스를 검토하여 일관성을 확인할 수 있습니다.
 <img width="689" height="886" alt="sc3" src="https://github.com/user-attachments/assets/0d083265-9d5a-473a-b79a-1d3f7aae3151" />
 
 ---
