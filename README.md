@@ -15,17 +15,7 @@ $ cd bob_wxo_hackathon
 
 이제 모든 준비가 끝났습니다! Bob으로 해당 디렉터리를 열어 실행하세요.
 
-## 2. Get watsonx Orchestrate
-
-1. 메일로 도착한 IBM Cloud Join now 눌러서 wxo 인스턴스에 접속합니다.
-2. IBM Cloud > Resource List > AI/Machine Learning > watsonx Orchestrate 선택합니다.
-3. Credential에서 URL 복사하고 메모장에 적어둡니다.
-4. 상단 바의 Manage > IAM 선택합니다.
-5. 왼쪽 바의 Manage Identities > API Keys 선택합니다.
-6. 오른쪽의 Create 파란색 버튼 누르고, wxo-api-<본인이름> 작성합니다.
-7. API Key 복사하고 메모장에 적어둡니다.
-
-## 3. Setup Bob
+## 2. Setup Bob
 
 MCP 서버 구성 파일과 스킬을 Bob의 `.bob` 구성 디렉터리에 복사하여, Bob이 watsonx Orchestrate와 통신하고 에이전트 구축용 스킬을 불러올 수 있도록 합니다. 두 작업 모두를 수행하는 방법은 여러 가지가 있지만, 여기서는 단순히 파일을 구성 디렉터리의 적절한 위치로 복사하는 방법을 사용하겠습니다.
 
@@ -46,6 +36,18 @@ That's it! We've configured:
 - **wxo-adk-agent skill** - streamlined Skill for building wxO agents
 
 > MCP 서버에 연결되지 않으면, Bob을 복사한 후 다시 시작해 보세요. Bob은 시작 시 `mcp.json` 파일과 스킬 정보를 자동으로 불러옵니다.
+
+
+## 3. Get watsonx Orchestrate
+
+1. 메일로 도착한 IBM Cloud Join now 눌러서 wxo 인스턴스에 접속합니다.
+2. IBM Cloud > Resource List > AI/Machine Learning > watsonx Orchestrate 선택합니다.
+3. Credential에서 URL 복사하고 메모장에 적어둡니다.
+4. 상단 바의 Manage > IAM 선택합니다.
+5. 왼쪽 바의 Manage Identities > API Keys 선택합니다.
+6. 오른쪽의 Create 파란색 버튼 누르고, wxo-api-<본인이름> 작성합니다.
+7. API Key 복사하고 메모장에 적어둡니다.
+
 
 ## 4. Setup dev env
 
@@ -98,7 +100,7 @@ $ cp env.example .env
 # Load credentials
 $ source .env   # or set the variables manually
 
-# NOTE: Get the missing credentials from the Google Form!
+# NOTE: 위에서 저장한 watsonx Orchestrate URL, API Key를 .env 파일에 넣어줍니다. 
 
 # Register
 $ uv run orchestrate env add \
@@ -115,8 +117,6 @@ $ uv run orchestrate env activate hackathon --api-key $WO_INSTANCE_API_KEY
 $ uv run orchestrate env list
 ```
 
-> NOTE: MAKE SURE TO GET THE MISSING CREDENTIALS FROM THE GOOGLE FORM
-
 ---
 
 ## 5. Start Building
@@ -127,7 +127,7 @@ $ uv run orchestrate env list
 **Example prompt:**
 
 ```
-주식 가격 확인 에이전트를 만들어서 평가용 테스트 케이스와 함께 Orchestrate에 업로드해 주세요.
+ibm_knolwedge 에이전트를 만들되, 에이전트의 이름 뒤에는 _<본인이름영어로> 을 붙여줘. 그리고 orchestrate에 에이전트를 업로드해줘.
 ```
 
 
@@ -217,6 +217,16 @@ curl -X POST -H "Authorization: Bearer $TOKEN" \
 
 ---
 
+## 0714 해커톤 전까지 보고 오면 좋은 문서들
+Bob이 2026년 6월 25일, v2로 새롭게 업데이트되었습니다. 아래 Docs를 참고해서 새로운 기능에 익숙해지면 어떨까요?
+Bob Docs : [https://bob.ibm.com/docs/ide](https://bob.ibm.com/docs/ide)
+
+Bob L3 : [https://learn.ibm.com/course/view.php?id=18804](https://learn.ibm.com/course/view.php?id=18804)
+Wxo L3 : [https://learn.ibm.com/course/view.php?id=15986](https://learn.ibm.com/course/view.php?id=15986)
+Instana L3 : [https://learn.ibm.com/course/view.php?id=10326](https://learn.ibm.com/course/view.php?id=10326)
+
+---
+
 ## Troubleshooting
 
 | Symptom | Fix |
@@ -236,3 +246,6 @@ curl -X POST -H "Authorization: Bearer $TOKEN" \
 - Official docs: [developer.watson-orchestrate.ibm.com](https://developer.watson-orchestrate.ibm.com)
 - ADK package: [ibm-watsonx-orchestrate on PyPI](https://pypi.org/project/ibm-watsonx-orchestrate/)
 - IBM Bob docs: [bob.ibm.com](https://bob.ibm.com)
+
+
+
