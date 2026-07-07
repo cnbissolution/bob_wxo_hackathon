@@ -9,7 +9,7 @@
 
 ```bash
 # Clone and cd into the repo
-$ git clone https://github.com/colehurwitz/bob_wxo_hackathon.git
+$ git clone https://github.com/soyounglim522-dotcom/bob_wxo_hackathon
 $ cd bob_wxo_hackathon
 ```
 
