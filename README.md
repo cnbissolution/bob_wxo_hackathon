@@ -223,6 +223,7 @@ Bob이 2026년 6월 25일, v2로 새롭게 업데이트되었습니다. 아래 D
 - getting started with Bob : [pdf](./getting-started-with-bob.pdf)
 
 - Instana mcp : [https://github.com/instana/mcp-instana](https://github.com/instana/mcp-instana)
+- Instana API : [https://developer.ibm.com/apis/catalog/instana--instana-rest-api/Introduction](https://developer.ibm.com/apis/catalog/instana--instana-rest-api/Introduction)
 
 - Bob L3 : [https://learn.ibm.com/course/view.php?id=18804](https://learn.ibm.com/course/view.php?id=18804)
 - Wxo L3 : [https://learn.ibm.com/course/view.php?id=15986](https://learn.ibm.com/course/view.php?id=15986)
