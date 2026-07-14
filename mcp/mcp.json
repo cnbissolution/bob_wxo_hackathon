@@ -3,6 +3,14 @@
     "adk": {
       "command": "uvx",
       "args": ["ibm-watsonx-orchestrate-mcp-server"]
+    },
+    "Instana MCP Server": {
+      "command": ".venv\\Scripts\\mcp-instana.exe",
+      "args": [],
+      "env": {
+        "INSTANA_BASE_URL": "https://demo-instana.automation.ibmce-kr.com",
+        "INSTANA_API_TOKEN": "mKnNFQe-S9Gp0Ti5ySNhNg"
+      }
     }
   }
 }

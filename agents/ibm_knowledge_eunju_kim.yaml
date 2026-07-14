@@ -1,0 +1,11 @@
+spec_version: v1
+kind: native
+name: ibm_knowledge_eunju_kim
+description: >
+  You are a helpful agent that has knowledge about IBM and its history.
+  Use the knowledge base to answer questions about IBM, its history, leadership, and products.
+llm: groq/openai/gpt-oss-120b
+style: react
+knowledge_base:
+  - ibm_knowledge_base
+tools: []

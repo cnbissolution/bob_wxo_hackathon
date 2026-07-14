@@ -1,0 +1,79 @@
+openapi: 3.0.3
+info:
+  title: C&bis Knowledge Base RAG API
+  description: |
+    C&bis 사내 지식베이스를 키워드로 검색하여 관련 문서와 요약 답변을 반환하는 RAG API입니다.
+    ASPICE 컨설팅, IBM ELM/DOORS Next, PTC codeBeamer, 프로젝트 사례 등의 정보를 검색합니다.
+  version: "1.0.0"
+servers:
+  - url: http://localhost:8000
+    description: 로컬 개발 서버
+
+paths:
+  /search:
+    get:
+      operationId: search_knowledge
+      summary: C&bis 사내 지식베이스 검색 및 RAG 요약
+      description: |
+        사용자가 입력한 키워드를 바탕으로 C&bis 사내 지식베이스를 검색하고
+        관련 문서 목록과 RAG 요약 답변을 반환합니다.
+        ASPICE, 현대로템, DOORS, codeBeamer, MBSE 등의 키워드로 검색하세요.
+      parameters:
+        - name: query
+          in: query
+          required: true
+          schema:
+            type: string
+          description: "검색할 키워드 (예: ASPICE, 현대로템, DOORS, codeBeamer, MBSE)"
+      responses:
+        "200":
+          description: 검색 결과 및 RAG 요약 반환
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RAGResponse"
+              example:
+                query: "ASPICE"
+                found: true
+                references:
+                  - id: "kb_aspice"
+                    category: "ASPICE"
+                    title: "ASPICE CL2/CL3 컨설팅 가이드라인"
+                    content: "씨엔비스(C&bis)는 Automotive SPICE 프로세스 모델에 따른 자동차 소프트웨어 개발 프로세스 심사 및 컨설팅 서비스를 제공합니다."
+                summary: "[참조문서: ASPICE CL2/CL3 컨설팅 가이드라인] 문의하신 내용과 관련하여, 씨엔비스는 관련 레퍼런스와 고도화된 컨설팅 역량을 보유하고 있습니다."
+
+components:
+  schemas:
+    SearchResult:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 문서 고유 ID
+        category:
+          type: string
+          description: 문서 카테고리 (ASPICE, ALM, Project, MBSE 등)
+        title:
+          type: string
+          description: 문서 제목
+        content:
+          type: string
+          description: 문서 내용 요약
+
+    RAGResponse:
+      type: object
+      properties:
+        query:
+          type: string
+          description: 사용자가 입력한 검색 키워드
+        found:
+          type: boolean
+          description: 관련 문서 발견 여부
+        references:
+          type: array
+          description: 매칭된 지식베이스 문서 목록
+          items:
+            $ref: "#/components/schemas/SearchResult"
+        summary:
+          type: string
+          description: 검색 결과를 기반으로 생성된 RAG 요약 답변
