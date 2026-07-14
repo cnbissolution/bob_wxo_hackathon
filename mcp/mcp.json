@@ -11,6 +11,27 @@
         "INSTANA_BASE_URL": "https://demo-instana.automation.ibmce-kr.com",
         "INSTANA_API_TOKEN": "mKnNFQe-S9Gp0Ti5ySNhNg"
       }
+    },
+    "rhapsody-mcp-official": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "mcp-remote",
+        "http://localhost:8095/mcp",
+        "--allow-http",
+        "--transport",
+        "http"
+      ]
+    },
+    "rhapsody-image-exporter": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "python",
+        "C:\\IBM\\Rhapsody\\mcp\\rhapsody_mcp_server.py"
+      ]
     }
   }
 }
